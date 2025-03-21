@@ -11,59 +11,110 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Container principal */
+/* Tema Claro */
+body.light-theme {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Tema Escuro */
+body.dark-theme {
+    background-color: #2e2e2e;
+    color: #f4f4f4;
+}
+
+/* Container */
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
+    width: 80%;
+    margin: 0 auto;
     padding: 20px;
 }
 
 /* Cabeçalho */
-h1 {
+header {
     text-align: center;
-    color: #0056b3;
     margin-bottom: 30px;
+}
+
+h1 {
+    color: #007bff;
     font-size: 2.5em;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
 }
 
 /* Seções */
 section {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f4f4f4;
     padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme section {
+    background-color: #333333;
+    color: #f4f4f4;
 }
 
 section h2 {
-    color: #333;
-    font-size: 1.8em;
-    margin-bottom: 10px;
+    color: #333333;
+    font-size: 2em;
+    margin-bottom: 15px;
 }
 
 section ul {
     list-style-type: none;
+    font-size: 1.2em;
 }
 
 section ul li {
     padding: 10px;
-    font-size: 1.1em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ccc;
 }
 
 section ul li:last-child {
     border-bottom: none;
 }
 
+/* Imagens */
+.image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    border-radius: 8px;
+}
+
 /* Botões de acessibilidade */
 .accessibility-buttons {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .accessibility-buttons button {
@@ -86,10 +137,18 @@ section ul li:last-child {
     outline: none;
 }
 
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1em;
+    color: #777;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
-        padding: 10px;
+        width: 90%;
     }
 
     h1 {
@@ -104,7 +163,7 @@ section ul li:last-child {
         font-size: 1.5em;
     }
 
-    section ul li {
+    section p {
         font-size: 1em;
     }
 }

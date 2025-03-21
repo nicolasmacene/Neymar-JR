@@ -9,18 +9,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adicionar biografia
     bioSection.innerHTML = `
         <h2>Biografia</h2>
-        <p>Neymar da Silva Santos Júnior, mais conhecido como Neymar Jr., nasceu em 5 de fevereiro de 1992, em Mogi das Cruzes, São Paulo, Brasil. Desde jovem, demonstrou grande talento para o futebol, e aos 17 anos já jogava no time profissional do Santos FC.</p>
-        <p>Seu estilo de jogo é caracterizado pela velocidade, habilidade e dribles impressionantes. Neymar se tornou um dos jogadores mais caros da história do futebol, quando transferido para o Paris Saint-Germain (PSG) por uma quantia recorde em 2017.</p>
+        <p>Neymar da Silva Santos Júnior, mais conhecido como Neymar Jr., nasceu em 5 de fevereiro de 1992 em Mogi das Cruzes, São Paulo. Desde muito jovem, Neymar se destacou no futebol, iniciando sua carreira nas divisões de base do Santos FC, onde ganhou destaque internacional.</p>
+        <img src="neymar_bio.jpg" alt="Neymar jogando futebol" class="image">
     `;
 
     // Adicionar estatísticas
     statsSection.innerHTML = `
-        <h2>Estatísticas de Neymar</h2>
+        <h2>Estatísticas de Carreira</h2>
         <ul>
-            <li>Gols marcados no PSG: 115</li>
-            <li>Gols marcados pela Seleção Brasileira: 80</li>
-            <li>Campeonatos conquistados: 25</li>
-            <li>Transferências mais caras: 222 milhões de euros para o PSG</li>
+            <li>Gols no PSG: 115</li>
+            <li>Gols pela Seleção Brasileira: 80</li>
+            <li>Total de Títulos: 25</li>
+            <li>Transferência mais cara: 222 milhões de euros para o PSG</li>
         </ul>
     `;
 
@@ -40,9 +40,34 @@ document.addEventListener('DOMContentLoaded', function () {
     funFactsSection.innerHTML = `
         <h2>Curiosidades sobre Neymar</h2>
         <ul>
-            <li>Neymar tem um grande talento para o futsal, que ajudou a aprimorar suas habilidades no futebol.</li>
-            <li>É o jogador brasileiro com mais gols na história das eliminatórias da Copa do Mundo.</li>
+            <li>Ele é o jogador brasileiro com mais gols na história das eliminatórias da Copa do Mundo.</li>
+            <li>Neymar foi o responsável por criar o famoso "Neymar Dance", que ficou famoso em suas comemorações.</li>
             <li>Em 2020, Neymar foi eleito o melhor jogador do Campeonato Francês.</li>
         </ul>
     `;
 });
+
+// Função para alternar entre os temas claro e escuro
+function changeTheme() {
+    const body = document.body;
+    if (body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+    } else {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+    }
+}
+
+// Função para aumentar ou diminuir o tamanho da fonte
+function changeFontSize(action) {
+    const content = document.querySelectorAll('section');
+    content.forEach((section) => {
+        let currentSize = parseInt(window.getComputedStyle(section).fontSize);
+        if (action === 'increase') {
+            section.style.fontSize = (currentSize + 2) + 'px';
+        } else if (action === 'decrease') {
+            section.style.fontSize = (currentSize - 2) + 'px';
+        }
+    });
+}
