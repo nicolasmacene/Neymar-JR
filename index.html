@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site sobre Neymar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <h1>Bem-vindo ao site sobre Neymar</h1>
+        
+        <!-- Botões de acessibilidade -->
+        <div class="accessibility-buttons">
+            <button onclick="changeTheme()">Alternar Tema</button>
+            <button onclick="changeFontSize('increase')">Aumentar Fonte</button>
+            <button onclick="changeFontSize('decrease')">Diminuir Fonte</button>
+        </div>
+
+        <!-- Seção de informações sobre Neymar -->
+        <section id="bio"></section>
+        <section id="stats"></section>
+        <section id="titles"></section>
+        <section id="fun-facts"></section>
+    </div>
+
+    <script src="men.js"></script>
+    <script>
+        // Função para alternar entre os temas claro e escuro
+        function changeTheme() {
+            const body = document.body;
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+            } else {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+            }
+        }
+
+        // Função para aumentar ou diminuir o tamanho da fonte
+        function changeFontSize(action) {
+            const content = document.querySelectorAll('section');
+            content.forEach((section) => {
+                let currentSize = parseInt(window.getComputedStyle(section).fontSize);
+                if (action === 'increase') {
+                    section.style.fontSize = (currentSize + 2) + 'px';
+                } else if (action === 'decrease') {
+                    section.style.fontSize = (currentSize - 2) + 'px';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
